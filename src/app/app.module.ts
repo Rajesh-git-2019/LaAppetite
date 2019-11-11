@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -9,7 +10,16 @@ import { RestaurantsListComponent } from './restaurants-list/restaurants-list.co
 import { OrderChatComponent } from './order-chat/order-chat.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { SigninComponent } from './signin/signin.component';
+import { HomeComponent } from './home/home.component';
 
+const appRoutes: Routes = [
+  { path : '', component : HomeComponent,
+    children:[{path:'', component:LoginComponent},
+    {path:'signIn', component:SigninComponent}]},
+    {path : 'restaurants', component :  RestaurantsListComponent},
+    {path:'deliveryAddress', component:DeliveryAdressComponent}
+  ];
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,10 +29,13 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
     RestaurantsListComponent,
     OrderChatComponent,
     CheckoutComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    SigninComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
   bootstrap: [AppComponent]
