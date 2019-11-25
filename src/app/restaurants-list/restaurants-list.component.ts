@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-restaurants-list',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./restaurants-list.component.css']
 })
 export class RestaurantsListComponent implements OnInit {
-
+faU = faUser
   constructor() { }
 
   ngOnInit() {

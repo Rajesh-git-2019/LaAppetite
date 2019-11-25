@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -18,7 +18,8 @@ const appRoutes: Routes = [
     children:[{path:'', component:LoginComponent},
     {path:'signIn', component:SigninComponent}]},
     {path : 'restaurants', component :  RestaurantsListComponent},
-    {path:'deliveryAddress', component:DeliveryAdressComponent}
+    {path:'deliveryAddress', component:DeliveryAdressComponent},
+     
   ];
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

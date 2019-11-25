@@ -1,0 +1,24 @@
+
+
+div{
+    text-align: center;
+ 
+    background-image: url("foodimages.jpeg"); 
+    width: 100%;
+    height: 50vh;
+     
+}
+ 
+ 
+
+ 
+ form{
+    
+   
+ }
+
+ .btn btn-warning{
+     width: 300px;
+     padding: 100%;
+     margin-right: 40%;
+ }
