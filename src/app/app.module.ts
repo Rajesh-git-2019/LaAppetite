@@ -12,6 +12,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { SigninComponent } from './signin/signin.component';
 import { HomeComponent } from './home/home.component';
+import { MenuItemsComponent } from './menu-items/menu-items.component';
 
 const appRoutes: Routes = [
   { path : '', component : HomeComponent,
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
     {path:'signIn', component:SigninComponent}]},
     {path : 'restaurants', component :  RestaurantsListComponent},
     {path:'deliveryAddress', component:DeliveryAdressComponent},
+    {path:'menu/ID/:i',component:MenuItemsComponent}
      
   ];
 @NgModule({
@@ -32,7 +34,8 @@ const appRoutes: Routes = [
     CheckoutComponent,
     AccountSettingsComponent,
     SigninComponent,
-    HomeComponent
+    HomeComponent,
+    MenuItemsComponent
   ],
   imports: [
     BrowserModule,

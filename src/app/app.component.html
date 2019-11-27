@@ -1,15 +1,18 @@
 <div class="container-fluid">
-  <div class="row sticky-top">
-    <div class="col-12 col-sm-12">
-      <nav class="navbar navbar-light bg-light p-0">
-        <a class="navbar-brand" href="#">
+  <div class="row sticky-top ">
+    <div class="col-12 col-sm-12 ">
+      <nav class="navbar navbar-light main-bar p-0">
+        <a class="navbar-brand pl-1" href="#">
           <img src="../assets/images/logo.PNG" width="200" height="70" class="d-inline-block align-top" alt="">
         </a>
-        <i class="fas fa-user"></i>
+        <fa-icon class="pr-3" [icon]="userIcon"></fa-icon>
       </nav>
     </div>
   </div>
-  <div class="mainContent">
+  <div class="mainContent p-0">
       <router-outlet></router-outlet>
+  </div>
+  <div class="footer">
+
   </div>
 </div>

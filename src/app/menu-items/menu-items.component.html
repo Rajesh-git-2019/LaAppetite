@@ -1,0 +1,15 @@
+
+<div class="menu-list">
+        <img src= "{{menu.img}}" style="height: 300px; width: 100%;">
+        <h5><b>{{menu.name}}</b></h5>
+    
+<div class="form-check m-1 w-50 border border-dark itemsDiv" *ngFor="let item of menu.list">
+    <div class="p-3"> 
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+    <label class="form-check-label " for="defaultCheck1">
+            {{item}}
+    </label>
+</div>
+</div>
+
+</div>
