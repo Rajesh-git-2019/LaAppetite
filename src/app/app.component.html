@@ -5,14 +5,36 @@
         <a class="navbar-brand pl-1" href="#">
           <img src="../assets/images/logo.PNG" width="200" height="70" class="d-inline-block align-top" alt="">
         </a>
-        <fa-icon class="pr-3" [icon]="userIcon"></fa-icon>
+        <div class="btn-group dropleft pr-3">
+          <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          
+            <fa-icon  [icon]="userIcon"></fa-icon>
+          
+          </button>
+          <div class="dropdown-menu">
+          <a class="dropdown-item connected-user-shortcut">Welcome {{name}} !!!</a>
+            <div class="dropdown-divider connected-user-shortcut-divider"></div>
+            <a class="dropdown-item" (click)="passwordReset()">Settings</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="logOut()">Logout</a>
+          </div>
+        </div>
+        <!-- <div class="btn-group dropleft">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Settings
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div> -->
+        
       </nav>
     </div>
   </div>
-  <div class="mainContent p-0">
+  <div class="mainContent p-0 my-2">
       <router-outlet></router-outlet>
   </div>
-  <div class="footer">
-
-  </div>
+  <app-footer></app-footer>
 </div>

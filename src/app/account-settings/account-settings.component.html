@@ -1,1 +1,21 @@
-<p>account-settings works!</p>
+<form id="password_form" [formGroup]="passwordForm" (ngSubmit)="resetPassword()">
+        <div class="form-group">
+          <label for="np"><b>New Password :</b></label>
+          <input type="password" class="form-control" [ngClass]="{ 'is-invalid': passwordForm.get('newPassword').touched && passwordForm.get('newPassword').errors }" formControlName="newPassword" id="np"
+            placeholder="Enter new password">
+          <div *ngIf="passwordForm.get('newPassword').errors" class="invalid-feedback">
+            <div *ngIf="passwordForm.get('newPassword').errors.required">Mandatory Field*</div>
+        </div>
+        </div>
+        <div class="form-group">
+                <label for="cp"><b>Confirm Password :</b></label>
+                <input type="password" class="form-control" [ngClass]="{ 'is-invalid': passwordForm.get('confirmPassword').touched && passwordForm.get('confirmPassword').errors }" formControlName="confirmPassword" id="cp"
+                  placeholder="Confirm password">
+                <div *ngIf="passwordForm.get('confirmPassword').errors" class="invalid-feedback">
+                  <div *ngIf="passwordForm.get('confirmPassword').errors.required">Mandatory Field*</div>
+                  <div *ngIf="passwordForm.get('confirmPassword').errors.mustMatch">Passwords must match !</div>
+              </div>
+              </div>
+        <button type="submit" class="btn btn-primary"[disabled]="!passwordForm.valid" >Submit</button>
+        
+  </form>

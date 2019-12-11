@@ -1,35 +1,50 @@
-<form>
+<form id="ca" (ngSubmit)="createAccount()" [formGroup]="signInForm">
         <div>
-            <p class="h3">Create a new account</p>
+            <p class="h3" >Create a new account</p>
         </div>
         <div class="form-row my-3 mt-sm-0">
             <div class="col">
                 <label>First name: *</label>
-                <input type="text" class="form-control" placeholder="first name">
+                <input type="text" formControlName="fName" [ngClass]="{ 'is-invalid': signInForm.get('fName').touched && signInForm.get('fName').errors }" class="form-control" placeholder="first name">
+                <div *ngIf="signInForm.get('fName').errors" class="invalid-feedback">
+                    <div *ngIf="signInForm.get('fName').errors.required">First Name is required !</div>                  
+                </div>
             </div>
             <div class="col">
                 <label>Last name: *</label>
-                <input type="text" class="form-control" placeholder="last name">
-           
-           
-           
+                <input type="text" formControlName="lName" [ngClass]="{ 'is-invalid': signInForm.get('lName').touched && signInForm.get('lName').errors }" class="form-control" placeholder="last name">
+                <div *ngIf="signInForm.get('lName').errors" class="invalid-feedback">
+                    <div *ngIf="signInForm.get('lName').errors.required">Last Name is required !</div>                  
+                </div>       
             </div>
         </div>
         <div class="form-row my-3 mt-sm-0">
             <div class="col">
                 <label>Email: *</label>
-                <input type="email" class="form-control" id="inlineFormInputGroupUsername2" placeholder="email">
+                <input type="email" formControlName="email" [ngClass]="{ 'is-invalid': signInForm.get('email').touched && signInForm.get('email').errors }" class="form-control" id="inlineFormInputGroupUsername2" placeholder="email">
+                <div *ngIf="signInForm.get('email').errors" class="invalid-feedback">
+                    <div *ngIf="signInForm.get('email').errors.required">Email is required !</div>                  
+                    <div *ngIf="signInForm.get('email').errors.email">Format is wrong !</div>                  
+
+                </div> 
             </div>
         </div>
         <div class="form-row my-3 mt-sm-0">
             <div class="col">
                 <label>Password: *</label>
-                <input type="password" class="form-control" id="InputPassword1" placeholder="password">
+                <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': signInForm.get('password').touched && signInForm.get('password').errors }" class="form-control" id="InputPassword1" placeholder="password">
+                <div *ngIf="signInForm.get('password').errors" class="invalid-feedback">
+                    <div *ngIf="signInForm.get('password').errors.required">It is a Mandatory Field!</div>                  
+                </div>
             </div>
             <div class="col">
-                <label>Confirm Password: * </label>
-                <input type="password" class="form-control" id="InputPassword1" placeholder="confirm your password">
+                <label>Confirm Password: *</label>
+                <input type="password" formControlName="cnfPassword" [ngClass]="{ 'is-invalid': signInForm.get('cnfPassword').touched && signInForm.get('cnfPassword').errors }" class="form-control" id="InputPassword2" placeholder="confirm your password">
+                <div *ngIf="signInForm.get('cnfPassword').errors" class="invalid-feedback">
+                    <div *ngIf="signInForm.get('cnfPassword').errors.required">It is a Mandatory Field!</div>
+                    <div *ngIf="signInForm.get('cnfPassword').errors.mustMatch">Password Must Match!</div>                                    
+                </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary" routerLink='' >Submit</button>
+        <button  class="btn btn-primary" [disabled]="!signInForm.valid" >Submit</button>
     </form>

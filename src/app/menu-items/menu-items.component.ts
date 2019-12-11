@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
+import { NgForm } from "@angular/forms";
+import {menuItemService} from "../service/menuItems.service"
+import { Key } from 'protractor';
 
 @Component({
   selector: 'app-menu-items',
@@ -7,12 +10,15 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./menu-items.component.css']
 })
 export class MenuItemsComponent implements OnInit {
+  
+  @ViewChild('f',{static: false}) checkboxForm : NgForm;
   resId : number;
-  menus=[{id:1,name:'Mc.Donalds',list:['Jr.Chicken','Poutine','Hot Coffee','coke'],img:'../assets/images/mcdonalds.png'},
-  {id:2,name:'BurgerKing',list:['jr.ch','coke'],img:'../assets/images/BK.jpg'},
-  {id:3,name:'Starbucks',list:['jr.ch','coke'],img:'../assets/images/starbucks.jpg'}];
+  rs:any;
   menu :any; 
-  constructor(private route: ActivatedRoute) { 
+  selectedMenu = [];
+
+ 
+  constructor(private route: ActivatedRoute, private menuItemservice : menuItemService, private router : Router) { 
     
   }
 
@@ -22,7 +28,7 @@ export class MenuItemsComponent implements OnInit {
   }
 
   getMenu(){
-          for(let x of this.menus)
+          for(let x of this.menuItemservice.menuItems)
           {
             if(x.id==this.resId)
             {
@@ -30,5 +36,17 @@ export class MenuItemsComponent implements OnInit {
             }
           }      
     }
+    orderNow()
+    {
+      
+     for (const item in this.checkboxForm.value.menuItems){
+      const selected = this.checkboxForm.value.menuItems[item];
+       if(selected){
+
+        this.selectedMenu.push(this.menu.list.find(x=>x.itemId==Number(item)))     }
+       
+     }
+     
+     this.router.navigate(['/order'], { state: {example: this.selectedMenu } });    }
   }
 

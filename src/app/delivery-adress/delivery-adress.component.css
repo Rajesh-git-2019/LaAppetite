@@ -2,16 +2,19 @@
 
 div{
     text-align: center;
- 
-    background-image: url("foodimages.jpeg"); 
+    color: white;
+    /* background-image: url("foodimages.jpeg");  */
     width: 100%;
     height: 50vh;
      
 }
  
-
+input{
+    height: 35px;
+}
  .btn btn-warning{
      width: 300px;
      padding: 100%;
      margin-right: 40%;
+     height: 35px;;
  }
